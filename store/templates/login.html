@@ -1,0 +1,46 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container p-4 m-4 col-lg-5 mx-auto border rounded">
+  <h3 class="alert alert-light border rounded">Login</h3>
+
+  <form action="/login" method="POST">
+    {% csrf_token %} 
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">{{error}}</div>
+    {% endif %} 
+   
+    {% comment %} Email {% endcomment %}
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Email</label>
+      <input
+        type="text"
+        name="email"
+        value="{{values.email}}"
+        class="form-control"
+        id="formGroupExampleInput2"
+      />
+    </div>
+
+    {% comment %} Password {% endcomment %}
+    <div class="form-group">
+      <label for="formGroupExampleInput2">Password</label>
+      <input
+        type="text"
+        name="password"
+        class="form-control"
+        id="formGroupExampleInput2"
+      />
+    </div>
+
+    {% comment %} Login {% endcomment %}
+    <div class="form-group">
+      <input
+        class="btn btn-sm btn-info"
+        type="submit"
+        value="Login"
+      />
+    </div>
+  </form>
+</div>
+
+{%endblock%}
