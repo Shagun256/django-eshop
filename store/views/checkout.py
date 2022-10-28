@@ -3,6 +3,8 @@ from store.models.product import Product
 from store.models.customer import Customer
 from store.models.orders import Order
 from django.views import View
+from store.middleware.auth import auth_middleware
+from django.utils.decorators import method_decorator
 
 
 class Checkout(View):
