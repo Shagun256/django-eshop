@@ -9,6 +9,7 @@ from django.utils.decorators import method_decorator
 
 class Checkout(View):
 
+    @method_decorator(auth_middleware)
     def post(self, request):
         address = request.POST.get('address')
         phone = request.POST.get('phone')
